@@ -11,7 +11,7 @@
     "lint:fix": "npm run lint -- --fix",
     "lint": "eslint .",
     "build": "rimraf dist && tsc -p tsconfig-build.json",
-    "start": "node dist/main/api",
+    "start:dev": "npm run build && node dist/index.js",
     "prepare": "husky install"
   },
   "keywords": [],
