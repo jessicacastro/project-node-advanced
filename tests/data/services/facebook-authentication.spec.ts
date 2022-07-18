@@ -1,16 +1,6 @@
 import { AuthenticationError } from '@/domain/errors'
-import { FacebookAuthentication } from '@/domain/features'
+import { FacebookAuthenticationService } from '@/data/services'
 import { LoadFacebookUserApiInterface, LoadFacebookUserApi } from '@/data/contracts/apis'
-
-class FacebookAuthenticationService {
-  constructor (private readonly loadFacebookUser: LoadFacebookUserApiInterface) {}
-
-  async performAuth (params: FacebookAuthentication.Params): Promise<AuthenticationError> {
-    await this.loadFacebookUser.loadUser(params)
-
-    return new AuthenticationError('invalid credentials')
-  }
-}
 
 class LoadFacebookUserSpy implements LoadFacebookUserApiInterface {
   accessToken?: string
